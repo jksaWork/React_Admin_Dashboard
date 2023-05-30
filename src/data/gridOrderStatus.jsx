@@ -1,4 +1,4 @@
-export default gridOrderStatus = (props) => (
+export const gridOrderStatus = (props) => (
   <button
     type="button"
     style={{ background: props.StatusBg }}

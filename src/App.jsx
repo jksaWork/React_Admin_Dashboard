@@ -6,6 +6,10 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FcSettings } from "react-icons/fc";
 import { Sidebar, NavBar } from "./components";
 import { useStateContext } from "./context/ContextProvider";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Customers, Ecommerce, Employee, Orders } from "./Pages";
+
 function App() {
   let style = {
     display: "inline-block",
@@ -26,36 +30,54 @@ function App() {
 
   useEffect(() => {
     console.log(screenSize);
-    if (screenSize <= 900) setActiveMenu(false);
+    if (screenSize <= 700) setActiveMenu(false);
     else setActiveMenu(true);
   }, [screenSize]);
 
   return (
-    <div className="w-full flex flex-row relative dark:bg-main-dark">
-      <div className="fixed bottom-5 right-5" style={style}>
-        <TooltipComponent position="Top" content="Tooltip Content">
-          <div className="text-3xl bg-light-gray  hover:drop-shadow-xl cursor-pointer rounded-[40px] p-2">
-            <FcSettings />
-          </div>
-        </TooltipComponent>
-      </div>
-      <div
-        className={`
-        w-72 transition-all ease-in-out fixed sidebar border-x-1 drop-shadow-md dark:bg-secondary-dark-bg bg-white
+    <BrowserRouter>
+      <div className="w-full flex flex-row relative dark:bg-main-dark">
+        <div className="fixed bottom-5 right-5" style={style}>
+          <TooltipComponent position="Top" content="Tooltip Content">
+            <div className="text-3xl bg-light-gray  hover:drop-shadow-xl cursor-pointer rounded-[40px] p-2">
+              <FcSettings />
+            </div>
+          </TooltipComponent>
+        </div>
+        <div
+          className={`
+        w-72 transition-all z-[10] ease-in-out drop-shadow-md fixed sidebar border-x-1  dark:bg-secondary-dark-bg bg-white
         ${activeMenu ? "left-0" : "left-[-18rem]"}
       `}
-      >
-        <Sidebar />
+        >
+          <Sidebar />
+        </div>
+        {/*  */}
+        <div
+          className={`transition-all  flex flex-col  dark:bg-main-dark-bg min-h-screen bg-main-bg relative  ${
+            activeMenu ? "ml-72 w-4/5" : "w-full"
+          }`}
+        >
+          <div className="sticky top-0 left-0 z-10">
+            <NavBar />
+          </div>
+
+          {/* <RouterProvider router={router} /> */}
+          <div className={`box-border p-10 ${activeMenu ? "w-[95%]" : ""}`}>
+            {/* <div className="w-full  bg-gradient-to-r from-blue-500 to-transparent fixed z-[1] top-0 left-0 h-[300px]"></div> */}
+            <div className="z-[3]">
+              <Routes>
+                <Route path="/" element={<Ecommerce />} />
+                <Route path="/Orders" element={<Orders />} />
+                <Route path="/employees" element={<Employee />} />
+                <Route path="/customers" element={<Customers />} />
+                <Route path="/calendar" element={<Scheduler />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
       </div>
-      {/*  */}
-      <div
-        className={`transition-all flex flex-col w-full dark:bg-main-dark-bg min-h-screen bg-main-bg  ${
-          activeMenu ? "ml-72" : "flex-2"
-        }`}
-      >
-        <NavBar />
-      </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

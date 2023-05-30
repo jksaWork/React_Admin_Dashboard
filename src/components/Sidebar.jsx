@@ -11,7 +11,8 @@ function Sidebar() {
     useStateContext();
 
   const HandelClickMenu = () => {
-    if (screenSize <= 900) {
+    console.log(screenSize);
+    if (screenSize <= 700) {
       setActiveMenu(false);
     }
   };
@@ -21,7 +22,7 @@ function Sidebar() {
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
 
   return (
-    <div class="overflow-auto md:overflow-hidden md:hover:overflow-auto h-screen px-2 mr-2">
+    <div className="overflow-auto  md:overflow-hidden md:hover:overflow-auto h-screen px-2 mr-2">
       <div className="flex justify-around items-center">
         {/* Logo */}
         <div
@@ -49,7 +50,7 @@ function Sidebar() {
             <ul>
               {item.links.map((link) => (
                 <NavLink
-                  //    to={`/${link.name}`}
+                  to={`/${link.name}`}
                   key={link.name}
                   onClick={HandelClickMenu}
                   style={({ isActive }) => ({

@@ -35,7 +35,7 @@ function NavBar() {
   const { setActiveMenu, activeMenu, handleClick, isClicked } =
     useStateContext();
   return (
-    <div className="p-3 flex justify-between bg-white navabr ">
+    <div className="p-3 flex z-[3] justify-between bg-white drop-shadow-md navabr ">
       <NavButton
         title="menu"
         icon={<AiOutlineMenu />}
@@ -73,7 +73,7 @@ function NavBar() {
               <span> Altigani </span>
             </div>
             <div className="image_container mx-2">
-              <img src={avatar} class="w-10 h-10 mx-2 rounded-full" />
+              <img src={avatar} className="w-10 h-10 mx-2 rounded-full" />
             </div>
           </div>
         </TooltipComponent>

@@ -1,5 +1,3 @@
-import { gridOrderImage } from "./gridOrderImage";
-import { customerGridImage } from "./gridOrderImage";
 import React from "react";
 import {
   AiOutlineCalendar,
@@ -46,6 +44,26 @@ import product6 from "./product6.jpg";
 import product7 from "./product7.jpg";
 import product8 from "./product8.jpg";
 
+export const gridOrderImage = (props) => (
+  <div>
+    <img
+      className="rounded-xl h-20 md:ml-3"
+      src={props.ProductImage}
+      alt="order-item"
+    />
+  </div>
+);
+
+export const gridOrderStatus = (props) => (
+  <button
+    type="button"
+    style={{ background: props.StatusBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.Status}
+  </button>
+);
+
 export const kanbanGrid = [
   { headerText: "To Do", keyField: "Open", allowToggle: true },
 
@@ -60,7 +78,92 @@ export const kanbanGrid = [
 
   { headerText: "Done", keyField: "Close", allowToggle: true },
 ];
+const gridEmployeeProfile = (props) => (
+  <div className="flex items-center gap-2">
+    <img
+      className="rounded-full w-10 h-10"
+      src={props.EmployeeImage}
+      alt="employee"
+    />
+    <p>{props.Name}</p>
+  </div>
+);
 
+const gridEmployeeCountry = (props) => (
+  <div className="flex items-center justify-center gap-2">
+    <GrLocation />
+    <span>{props.Country}</span>
+  </div>
+);
+export const EditorData = () => (
+  <div>
+    <h3>
+      Try React React has been designed from the start for gradual adoption, and
+      you can use as little or as much React as you need. Whether you want to
+      get a taste of React, add some interactivity to a simple HTML page, or
+      start a complex React-powered app, the links in this section will help you
+      get started. Online Playgrounds If you’re interested in playing around
+      with React, you can use an online code playground. Try a Hello World
+      template on CodePen, CodeSandbox, or Stackblitz. If you prefer to use your
+      own text editor, you can also download this HTML file, edit it, and open
+      it from the local filesystem in your browser. It does a slow runtime code
+      transformation, so we’d only recommend using this for simple demos. Add
+      React to a Website You can add React to an HTML page in one minute. You
+      can then either gradually expand its presence, or keep it contained to a
+      few dynamic widgets. Create a New React App When starting a React project,
+      a simple HTML page with script tags might still be the best option. It
+      only takes a minute to set up! As your application grows, you might want
+      to consider a more integrated setup. There are several JavaScript
+      toolchains we recommend for larger applications. Each of them can work
+      with little to no configuration and lets you take full advantage of the
+      rich React ecosystem. Learn how. Learn React People come to React from
+      different backgrounds and with different learning styles. Whether you
+      prefer a more theoretical or a practical approach, we hope you’ll find
+      this section helpful. If you prefer to learn by doing, start with our
+      practical tutorial. If you prefer to learn concepts step by step, start
+      with our guide to main concepts. Like any unfamiliar technology, React
+      does have a learning curve. With practice and some patience, you will get
+      the hang of it. First Examples The React homepage contains a few small
+      React examples with a live editor. Even if you don’t know anything about
+      React yet, try changing their code and see how it affects the result.
+      React for Beginners If you feel that the React documentation goes at a
+      faster pace than you’re comfortable with, check out this overview of React
+      by Tania Rascia. It introduces the most important React concepts in a
+      detailed, beginner-friendly way. Once you’re done, give the documentation
+      another try! React for Designers If you’re coming from a design
+      background, these resources are a great place to get started. JavaScript
+      Resources The React documentation assumes some familiarity with
+      programming in the JavaScript language. You don’t have to be an expert,
+      but it’s harder to learn both React and JavaScript at the same time. We
+      recommend going through this JavaScript overview to check your knowledge
+      level. It will take you between 30 minutes and an hour but you will feel
+      more confident learning React.
+    </h3>
+  </div>
+);
+const customerGridImage = (props) => (
+  <div className="image flex gap-4">
+    <img
+      className="rounded-full w-10 h-10"
+      src={props.CustomerImage}
+      alt="employee"
+    />
+    <div>
+      <p>{props.CustomerName}</p>
+      <p>{props.CustomerEmail}</p>
+    </div>
+  </div>
+);
+
+const customerGridStatus = (props) => (
+  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
+    <p
+      style={{ background: props.StatusBg }}
+      className="rounded-full h-3 w-3"
+    />
+    <p>{props.Status}</p>
+  </div>
+);
 export const areaPrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "y",
@@ -406,6 +509,95 @@ export const employeesGrid = [
   },
 ];
 
+export const links = [
+  {
+    title: "Dashboard",
+    links: [
+      {
+        name: "ecommerce",
+        icon: <FiShoppingBag />,
+      },
+    ],
+  },
+
+  {
+    title: "Pages",
+    links: [
+      {
+        name: "orders",
+        icon: <AiOutlineShoppingCart />,
+      },
+      {
+        name: "employees",
+        icon: <IoMdContacts />,
+      },
+      {
+        name: "customers",
+        icon: <RiContactsLine />,
+      },
+    ],
+  },
+  {
+    title: "Apps",
+    links: [
+      {
+        name: "calendar",
+        icon: <AiOutlineCalendar />,
+      },
+      {
+        name: "kanban",
+        icon: <BsKanban />,
+      },
+      {
+        name: "editor",
+        icon: <FiEdit />,
+      },
+      {
+        name: "color-picker",
+        icon: <BiColorFill />,
+      },
+    ],
+  },
+  {
+    title: "Charts",
+    links: [
+      {
+        name: "line",
+        icon: <AiOutlineStock />,
+      },
+      {
+        name: "area",
+        icon: <AiOutlineAreaChart />,
+      },
+
+      {
+        name: "bar",
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: "pie",
+        icon: <FiPieChart />,
+      },
+      {
+        name: "financial",
+        icon: <RiStockLine />,
+      },
+      {
+        name: "color-mapping",
+        icon: <BsBarChart />,
+      },
+      {
+        name: "pyramid",
+        icon: <GiLouvrePyramid />,
+      },
+      {
+        name: "stacked",
+        icon: <AiOutlineBarChart />,
+      },
+    ],
+  },
+];
+
 export const cartData = [
   {
     image: product5,
@@ -456,7 +648,7 @@ export const chatData = [
 
 export const earningData = [
   {
-    icon: MdOutlineSupervisorAccount,
+    icon: <MdOutlineSupervisorAccount />,
     amount: "39,354",
     percentage: "-4%",
     title: "Customers",
@@ -465,7 +657,7 @@ export const earningData = [
     pcColor: "red-600",
   },
   {
-    icon: BsBoxSeam,
+    icon: <BsBoxSeam />,
     amount: "4,396",
     percentage: "+23%",
     title: "Products",
@@ -474,7 +666,7 @@ export const earningData = [
     pcColor: "green-600",
   },
   {
-    icon: FiBarChart,
+    icon: <FiBarChart />,
     amount: "423,39",
     percentage: "+38%",
     title: "Sales",
@@ -484,7 +676,7 @@ export const earningData = [
     pcColor: "green-600",
   },
   {
-    icon: HiOutlineRefresh,
+    icon: <HiOutlineRefresh />,
     amount: "39,354",
     percentage: "-12%",
     title: "Refunds",
@@ -496,7 +688,7 @@ export const earningData = [
 
 export const recentTransactions = [
   {
-    icon: BsCurrencyDollar,
+    icon: <BsCurrencyDollar />,
     amount: "+$350",
     title: "Paypal Transfer",
     desc: "Money Added",
@@ -505,7 +697,7 @@ export const recentTransactions = [
     pcColor: "green-600",
   },
   {
-    icon: BsShield,
+    icon: <BsShield />,
     amount: "-$560",
     desc: "Bill Payment",
     title: "Wallet",
@@ -514,7 +706,7 @@ export const recentTransactions = [
     pcColor: "red-600",
   },
   {
-    icon: FiCreditCard,
+    icon: <FiCreditCard />,
     amount: "+$350",
     title: "Credit Card",
     desc: "Money reversed",
@@ -524,7 +716,7 @@ export const recentTransactions = [
     pcColor: "green-600",
   },
   {
-    icon: TiTick,
+    icon: <TiTick />,
     amount: "+$350",
     title: "Bank Transfer",
     desc: "Money Added",
@@ -534,7 +726,7 @@ export const recentTransactions = [
     pcColor: "green-600",
   },
   {
-    icon: BsCurrencyDollar,
+    icon: <BsCurrencyDollar />,
     amount: "-$50",
     percentage: "+38%",
     title: "Refund",
@@ -547,7 +739,7 @@ export const recentTransactions = [
 
 export const weeklyStats = [
   {
-    icon: FiShoppingCart,
+    icon: <FiShoppingCart />,
     amount: "-$560",
     title: "Top Sales",
     desc: "Johnathan Doe",
@@ -555,7 +747,7 @@ export const weeklyStats = [
     pcColor: "red-600",
   },
   {
-    icon: FiStar,
+    icon: <FiStar />,
     amount: "-$560",
     title: "Best Seller",
     desc: "MaterialPro Admin",
@@ -563,7 +755,7 @@ export const weeklyStats = [
     pcColor: "red-600",
   },
   {
-    icon: BsChatLeft,
+    icon: <BsChatLeft />,
     amount: "+$560",
     title: "Most Commented",
     desc: "Ample Admin",
@@ -680,21 +872,21 @@ export const themeColors = [
 
 export const userProfileData = [
   {
-    icon: BsCurrencyDollar,
+    icon: <BsCurrencyDollar />,
     title: "My Profile",
     desc: "Account Settings",
     iconColor: "#03C9D7",
     iconBg: "#E5FAFB",
   },
   {
-    icon: BsShield,
+    icon: <BsShield />,
     title: "My Inbox",
     desc: "Messages & Emails",
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
   },
   {
-    icon: FiCreditCard,
+    icon: <FiCreditCard />,
     title: "My Tasks",
     desc: "To-do and Daily Tasks",
     iconColor: "rgb(255, 244, 229)",
