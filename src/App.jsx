@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FcSettings } from "react-icons/fc";
-import { Sidebar, NavBar } from "./components";
+import { Sidebar, NavBar, ThemeComponents } from "./components";
 import { useStateContext } from "./context/ContextProvider";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -17,8 +17,14 @@ function App() {
     // background: black,
   };
 
-  const { activeMenu, setActiveMenu, screenSize, SetScreenSize } =
-    useStateContext();
+  const {
+    ThemeSetting,
+    setThemeSetting,
+    activeMenu,
+    setActiveMenu,
+    screenSize,
+    SetScreenSize,
+  } = useStateContext();
 
   useEffect(() => {
     const HandelAppVaribales = () => SetScreenSize(window.innerWidth);
@@ -37,13 +43,18 @@ function App() {
   return (
     <BrowserRouter>
       <div className="w-full flex flex-row relative dark:bg-main-dark">
-        <div className="fixed bottom-5 right-5" style={style}>
+        <div
+          className="fixed bottom-5 right-0  z-[100]"
+          style={style}
+          onClick={() => setThemeSetting(true)}
+        >
           <TooltipComponent position="Top" content="Tooltip Content">
             <div className="text-3xl bg-light-gray  hover:drop-shadow-xl cursor-pointer rounded-[40px] p-2">
               <FcSettings />
             </div>
           </TooltipComponent>
         </div>
+        {ThemeSetting && <ThemeComponents />}
         <div
           className={`
         w-72 transition-all z-[10] ease-in-out drop-shadow-md fixed sidebar border-x-1  dark:bg-secondary-dark-bg bg-white
@@ -68,6 +79,7 @@ function App() {
             <div className="z-[3]">
               <Routes>
                 <Route path="/" element={<Ecommerce />} />
+                <Route path="/ecommerce" element={<Ecommerce />} />
                 <Route path="/Orders" element={<Orders />} />
                 <Route path="/employees" element={<Employee />} />
                 <Route path="/customers" element={<Customers />} />

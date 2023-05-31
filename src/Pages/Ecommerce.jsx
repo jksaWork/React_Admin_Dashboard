@@ -3,7 +3,9 @@ import { Button } from "../components";
 import { earningData, SparklineAreaData } from "../data/index";
 import { GoPrimitiveDot } from "react-icons/go";
 import { Sparkline, BarsChart } from "../components/index";
+import { useStateContext } from "../context/ContextProvider";
 function Ecommerce() {
+  const { cureentColor } = useStateContext();
   return (
     <div className="mt-4">
       <div className="flex flex-wrap items-center   lg:no-wrap justify-center">
@@ -21,7 +23,7 @@ function Ecommerce() {
             <div className="mt-5">
               <Button
                 color="white"
-                bgColor="blue"
+                bgColor={cureentColor}
                 radius="md"
                 content="DownLoad"
                 ClickFun={() => consol.log("hello")}
@@ -94,10 +96,10 @@ function Ecommerce() {
                   id="spark_line"
                   height="100px"
                   width="100px"
-                  color="blue"
+                  color={cureentColor}
                   data={SparklineAreaData}
                   type="Line"
-                  currentColor="blue"
+                  currentColor={cureentColor}
                 />
               </div>
             </div>
@@ -105,10 +107,10 @@ function Ecommerce() {
               <BarsChart
                 //  height="300"
                 //  width="300"
-                color="blue"
+                color={cureentColor}
                 data={SparklineAreaData}
                 type="Line"
-                currentColor="blue"
+                currentColor={cureentColor}
               />
             </div>
           </div>

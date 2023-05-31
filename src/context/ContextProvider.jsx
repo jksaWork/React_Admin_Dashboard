@@ -14,6 +14,21 @@ function ContextProvider({ children }) {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, SetScreenSize] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
+  const [ThemeSetting, setThemeSetting] = useState(true);
+  const [cureentColor, setCureentColor] = useState("blue");
+  const [Mode, setMode] = useState("light");
+
+  const ChangeColor = (color) => {
+    setCureentColor(color);
+    localStorage.setItem("color", color);
+    setThemeSetting(false);
+  };
+
+  const ChangeMode = (e) => {
+    setMode(e.target.value);
+    localStorage.setItem("mode", e.target.value);
+    setThemeSetting(false);
+  };
 
   // handleClick();
   const handleClick = (clicked) =>
@@ -29,6 +44,12 @@ function ContextProvider({ children }) {
         handleClick,
         isClicked,
         setIsClicked,
+        ThemeSetting,
+        setThemeSetting,
+        ChangeColor,
+        cureentColor,
+        ChangeMode,
+        Mode,
       }}
     >
       {children}

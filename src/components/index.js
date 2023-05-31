@@ -8,3 +8,4 @@ export { default as Button } from "./Button";
 export { default as Sparkline } from "./Charts/Sparkline";
 export { default as BarsChart } from "./Charts/BarsChart";
 export { default as Header } from "./Header";
+export { default as ThemeComponents } from "./ThemeComponents";

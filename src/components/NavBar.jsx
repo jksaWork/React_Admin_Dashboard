@@ -32,34 +32,40 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 function NavBar() {
-  const { setActiveMenu, activeMenu, handleClick, isClicked } =
-    useStateContext();
+  const {
+    setActiveMenu,
+    cureentColor,
+    cureent,
+    activeMenu,
+    handleClick,
+    isClicked,
+  } = useStateContext();
   return (
     <div className="p-3 flex z-[3] justify-between bg-white drop-shadow-md navabr ">
       <NavButton
         title="menu"
         icon={<AiOutlineMenu />}
-        color="blue"
+        color={cureentColor}
         customFunc={() => setActiveMenu(!activeMenu)}
       />
       <div className="flex gap-1">
         <NavButton
           title="cart"
           icon={<FcShop />}
-          color="blue"
+          color={cureentColor}
           customFunc={() => handleClick("cart")}
         />
         <NavButton
           title="notification"
           icon={<RiNotification3Line />}
-          color="blue"
+          color={cureentColor}
           dotColor="red"
           customFunc={() => handleClick("notification")}
         />
         <NavButton
           title="notification"
           icon={<FcAbout />}
-          color="blue"
+          color={cureentColor}
           dotColor="red"
           customFunc={() => handleClick("notification")}
         />
