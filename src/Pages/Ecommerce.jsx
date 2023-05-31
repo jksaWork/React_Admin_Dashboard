@@ -8,29 +8,7 @@ function Ecommerce() {
   const { cureentColor } = useStateContext();
   return (
     <div className="mt-4">
-      <div className="flex flex-wrap items-center   lg:no-wrap justify-center">
-        <div
-          className="h-44 bg-white dark:bg-secondary-dark-bg 
-        dark:text-gray
-        hover:translate-y-[-5px] transition-all
-         rounedd-xl  w-full  lg:w-80 bg-hero-pattern bg-no-reapet 
-        bg-cover bg-center 
-        "
-        >
-          <div className="flex flex-col p-5 rounded-sm">
-            <h3 className="text-xl font-bold">Earings </h3>
-            <h3 className="text-2xl  mt-3 font-bold">$5912,123.00 </h3>
-            <div className="mt-5">
-              <Button
-                color="white"
-                bgColor={cureentColor}
-                radius="md"
-                content="DownLoad"
-                ClickFun={() => consol.log("hello")}
-              />
-            </div>
-          </div>
-        </div>
+      <div className="flex flex-wrap items-center    lg:no-wrap justify-center">
         <div className="flex flex-wrap  gap-2 m-2 justify-center items-center ">
           {earningData.map((item) => (
             <div
@@ -54,7 +32,7 @@ function Ecommerce() {
             </div>
           ))}
         </div>
-        <div className="mt-3 w-full  p-4 bg-white md:mx-20 mx-1 drop-shadow-md hover:translate-y-[-5px] transition-all ">
+        <div className="mt-3 w-full  p-4 bg-white lg:mx-10 mx-1 dark:bg-secondary-dark-bg  drop-shadow-md hover:translate-y-[-5px] transition-all ">
           <div className="flex justify-between w-full  items-center">
             <div className="text-semibold">
               <span className="text-2xl font-bold">Renvues Update</span>

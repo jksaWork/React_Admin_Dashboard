@@ -8,7 +8,7 @@ const handleClick = () => console.log("Hello");
 
 export default function CustomSeparator({ title }) {
   return (
-    <div className="card bg-white p-4 drop-shadow my-2 rounded-md">
+    <div className="card bg-white dark:bg-secondary-dark-bg p-4 drop-shadow my-2 rounded-md">
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         <Link
           underline="hover"

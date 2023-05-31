@@ -41,7 +41,7 @@ function NavBar() {
     isClicked,
   } = useStateContext();
   return (
-    <div className="p-3 flex z-[3] justify-between bg-white drop-shadow-md navabr ">
+    <div className="p-3 flex z-[3] justify-between bg-white dark:bg-main-dark-bg  drop-shadow-md navabr ">
       <NavButton
         title="menu"
         icon={<AiOutlineMenu />}

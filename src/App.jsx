@@ -24,6 +24,7 @@ function App() {
     setActiveMenu,
     screenSize,
     SetScreenSize,
+    Mode,
   } = useStateContext();
 
   useEffect(() => {
@@ -42,7 +43,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="w-full flex flex-row relative dark:bg-main-dark">
+      <div
+        className={`w-full flex flex-row relative dark:bg-main-dark ${
+          Mode == "Dark" ? "dark" : ""
+        }`}
+      >
         <div
           className="fixed bottom-5 right-0  z-[100]"
           style={style}

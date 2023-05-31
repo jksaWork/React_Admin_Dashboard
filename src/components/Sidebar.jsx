@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 import { useStateContext } from "../context/ContextProvider";
 function Sidebar() {
-  const { activeMenu, setActiveMenu, screenSize, SetScreenSize } =
+  const { activeMenu, setActiveMenu, cureentColor, screenSize, SetScreenSize } =
     useStateContext();
 
   const HandelClickMenu = () => {
@@ -54,7 +54,7 @@ function Sidebar() {
                   key={link.name}
                   onClick={HandelClickMenu}
                   style={({ isActive }) => ({
-                    backgroundColor: isActive ? "#ef81de" : "",
+                    backgroundColor: isActive ? cureentColor : "",
                   })}
                   className={({ isActive }) =>
                     isActive ? activeLink : normalLink

@@ -97,8 +97,20 @@ export const themeColors = [
     color: "#1E4DB7",
   },
   {
-    color: "#FB9678",
+    color: "#B67811",
     name: "orange-theme",
+  },
+  {
+    color: "#F123914",
+    name: "B67811-theme",
+  },
+  {
+    color: "#FB96123",
+    name: "FB96123-theme",
+  },
+  {
+    color: "#Fee078",
+    name: "Fee078-theme",
   },
 ];
 
